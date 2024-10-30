@@ -1,4 +1,4 @@
-import csv, time
+import csv, time, os
 from collections import namedtuple
 from functools import partial
 from random import choices, randint, randrange, random
@@ -7,20 +7,21 @@ from typing import List, Callable, Tuple
 Thing = namedtuple('Thing', ['name', 'rating', 'price'])
 Thing3 = namedtuple('Thing3', ['name', 'business_name', 'contact_number', 'email', 'rating', 'price','type'])
 
-csv_file_path3 = 'C:/Users/Adrian/Desktop/HTML Guide 2/Capstone/Experiment2/csvs/supplier_list3.csv'
-cake = 'C:/Users/Adrian/Desktop/HTML Guide 2/Capstone/Experiment2/csvs/Cake.csv'
-digital_printing = 'C:/Users/Adrian/Desktop/HTML Guide 2/Capstone/Experiment2/csvs/Digital_Printing.csv'
-event_planner = 'C:/Users/Adrian/Desktop/HTML Guide 2/Capstone/Experiment2/csvs/Event_Planner.csv'
-grazing_table = 'C:/Users/Adrian/Desktop/HTML Guide 2/Capstone/Experiment2/csvs/Grazing_Table.csv'
-makeup_and_Hair = 'C:/Users/Adrian/Desktop/HTML Guide 2/Capstone/Experiment2/csvs/Makeup_and_Hair.csv'
-photobooth = 'C:/Users/Adrian/Desktop/HTML Guide 2/Capstone/Experiment2/csvs/Photobooth.csv'
-photographer = 'C:/Users/Adrian/Desktop/HTML Guide 2/Capstone/Experiment2/csvs/Photographer.csv'
+base_path = os.path.dirname(__file__)
+csv_file_path3 = os.path.join(base_path, 'csvs', 'supplier_list3.csv')
+cake = os.path.join(base_path, 'csvs', 'Cake.csv')
+digital_printing = os.path.join(base_path, 'csvs', 'Digital_Printing.csv')
+event_planner = os.path.join(base_path, 'csvs', 'Event_Planner.csv')
+grazing_table = os.path.join(base_path, 'csvs', 'Grazing_Table.csv')
+makeup_and_hair = os.path.join(base_path, 'csvs', 'Makeup_and_Hair.csv')
+photobooth = os.path.join(base_path, 'csvs', 'Photobooth.csv')
+photographer = os.path.join(base_path, 'csvs', 'Photographer.csv')
 
-catering = 'C:/Users/Adrian/Desktop/HTML Guide 2/Capstone/Experiment2/csvs_deluxe/Catering.csv'
-church = 'C:/Users/Adrian/Desktop/HTML Guide 2/Capstone/Experiment2/csvs_deluxe/Church.csv'
-event_stylist = 'C:/Users/Adrian/Desktop/HTML Guide 2/Capstone/Experiment2/csvs_deluxe/Event_Stylist.csv'
-events_place = 'C:/Users/Adrian/Desktop/HTML Guide 2/Capstone/Experiment2/csvs_deluxe/Events_Place.csv'
-lights_and_sounds = 'C:/Users/Adrian/Desktop/HTML Guide 2/Capstone/Experiment2/csvs_deluxe/Lights_and_Sounds.csv'
+catering = os.path.join(base_path, 'csvs_deluxe', 'Catering.csv')
+church = os.path.join(base_path, 'csvs_deluxe', 'Church.csv')
+event_stylist = os.path.join(base_path, 'csvs_deluxe', 'Event_Stylist.csv')
+events_place = os.path.join(base_path, 'csvs_deluxe', 'Events_Place.csv')
+lights_and_sounds = os.path.join(base_path, 'csvs_deluxe', 'Lights_and_Sounds.csv')
 
 def read_csv3(file_path, arr):
     with open(file_path, mode='r', newline='') as csv_file:
